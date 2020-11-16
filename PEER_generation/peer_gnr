@@ -48,7 +48,7 @@ rule peer__run:
         start_col=config['START_COL']
     shell:
         # run peer
-        'Rscript {params.script_peer} '
+        '/usr/bin/time -v --output=peer_runs/factor_{wildcards.k}/moltraits.time_log Rscript {params.script_peer} '
             '--file {input.pheno} '
             '--sample_column_start {params.start_col} '
             '--hidden_factors {wildcards.k} '
